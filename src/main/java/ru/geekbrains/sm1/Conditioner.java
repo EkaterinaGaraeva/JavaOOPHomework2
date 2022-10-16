@@ -1,16 +1,16 @@
 package ru.geekbrains.sm1;
 
-public class Conditioner {
+public class Conditioner implements Stoppable {
 
     private Boolean on;
     private int temperature;
 
-    public void turnOn() {
+    public void start() {
         this.on = true;
         System.out.println("Air conditioning is turned on");
     }
 
-    public void turnOff() {
+    public void stop() {
         this.on = false;
         System.out.println("Air conditioning is turned off");
     }

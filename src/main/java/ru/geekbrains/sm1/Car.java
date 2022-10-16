@@ -16,6 +16,8 @@ public class Car {
     private Conditioner conditioner;
     private Steering steering;
 
+    private GasolineTank gasolineTank;
+
     public Car() {
         this.base = new Base();
         this.door1 = new Door();
@@ -24,6 +26,7 @@ public class Car {
         this.door4 = new Door();
         this.conditioner = new Conditioner();
         this.steering = new Steering();
+        this.gasolineTank = new GasolineTank();
     }
 
     public void unlockDoors() {
@@ -62,7 +65,7 @@ public class Car {
     }
 
     public void climat(int temperature) {
-        conditioner.turnOn();
+        conditioner.start();
         conditioner.setTemperature(temperature);
         int temp = conditioner.getTemperature();
         System.out.printf("Temperature is %d%n", temp);
@@ -84,7 +87,7 @@ public class Car {
 
     public void stop() {
         base.stop();
-        conditioner.turnOff();
+        conditioner.stop();
     }
 
     public void lockDoors() {
@@ -94,12 +97,17 @@ public class Car {
         door4.lock();
     }
 
+    public void percentOfGasoline() {
+        gasolineTank.percentOfFuel();
+    }
+
     public static void main(String[] args) {
         Car car = new Car();
         car.unlockDoors();
         car.openDoor(1);
         car.closeDoor(1);
         car.start();
+        car.percentOfGasoline();
         car.climat(22);
         car.drive(1);
         car.drive("left");

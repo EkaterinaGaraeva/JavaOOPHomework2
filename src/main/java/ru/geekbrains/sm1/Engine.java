@@ -1,6 +1,6 @@
 package ru.geekbrains.sm1;
 
-public abstract class Engine implements Checkable {
+public abstract class Engine implements Checkable, Stoppable {
     private Boolean work;
 
     public void start() {
